@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.title{
+    text-align: center;
+    color:rgb(239, 139, 89);
+}
+.task-inp-con{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1rem;
+    gap:30px;
+}
+.task-inp-con .task-inp{
+    width: 40%;
+    height:30px;
+}
+.task-sub{
+    width:100px;
+    background-color: red;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.error{
+    color: red;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1rem;
+    
+}
+.tasks-display-con{
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap:1rem;
+}
+.tasks-display-con .task{
+    border: 1px solid black;
+    width: 50%;
+    height: 11vh;
+    overflow: hidden;
+}
+.task-text{
+    color: blue;
+    padding-inline: 0.5rem;
+    padding-top: 5px;
+    border:none;
+    overflow: auto;
+    width: auto;
+
+}
+.task-tools{
+    color: red;
+    display: flex;
+    justify-content:space-between;
+    padding-inline: 0.5rem;
+    padding-bottom:1rem;
+   
+}
+
+.task-mod {
+    border: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap:1rem;
+    padding-bottom: 20px ;
+}
+.task-mod img{
+    width: 20px;
+    height: 20px;
+}
+.task-mod button{
+    border: none;
+    font-size: 20px;
+    background-color: white;
+    cursor: pointer;
+    
+}
+
