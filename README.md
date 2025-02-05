@@ -22,7 +22,7 @@ A fully functional **To-Do List** app built using **React.js**, designed to help
 - **State Management**: React Hooks (`useState`, `useEffect`)
 - **Persistence**: Local Storage
 - **Animations**: CSS Transitions and Transformations
-- **Hosting**: Netlify (or any other hosting platform)
+- **Hosting**: Netlify 
 
 ## 📌 Live Demo
 
