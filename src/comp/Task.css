@@ -1,85 +1,227 @@
-*{
+* {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
-.title{
+
+body {
+    background: linear-gradient(135deg, #ff6a88, #ffb199, #fbc2eb);
+    background-size: 300% 300%;
+    animation: gradientAnimation 10s ease infinite;
+    color: #333;
+    line-height: 1.6;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.title {
     text-align: center;
-    color:rgb(239, 139, 89);
+    color: #fff;
+    font-size: clamp(1.5rem, 4vw, 2.5rem); /* Responsive font size */
+    margin: 2rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
-.task-inp-con{
+
+.task-inp-con {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
     padding: 1rem;
-    gap:30px;
 }
-.task-inp-con .task-inp{
-    width: 40%;
-    height:30px;
+
+.task-inp-con .task-inp,
+.task-inp-con select {
+    width: 100%;
+    max-width: 500px;
+    height: 40px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: clamp(0.8rem, 2vw, 1rem); /* Responsive font size */
+    background-color: rgba(255, 255, 255, 0.8);
 }
-.task-sub{
-    width:100px;
-    background-color: red;
+
+.task-sub {
+    width: 100%;
+    max-width: 500px;
+    height: 40px;
+    background-color: #ef8b59;
     color: white;
     border: none;
-    font-size: 1rem;
+    border-radius: 5px;
+    font-size: clamp(0.8rem, 2vw, 1rem); /* Responsive font size */
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
-.error{
+
+.task-sub:hover {
+    background-color: #e67e4c;
+}
+
+.error {
     color: red;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: clamp(0.8rem, 2vw, 1.2rem); /* Responsive font size */
     padding: 1rem;
-    
+    margin-top: 1rem;
 }
-.tasks-display-con{
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  gap:1rem;
-}
-.tasks-display-con .task{
-    border: 1px solid black;
-    width: 50%;
-    height: 11vh;
-    overflow: hidden;
-}
-.task-text{
-    color: blue;
-    padding-inline: 0.5rem;
-    padding-top: 5px;
-    border:none;
-    overflow: auto;
-    width: auto;
 
+.tasks-display-con {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    justify-items: center;
 }
-.task-tools{
-    color: red;
+
+.tasks-display-con .task {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: clamp(0.5rem, 2vw, 1rem); /* Responsive padding */
+    width: 100%;
+    max-width: 500px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.tasks-display-con .task:hover {
+    transform: translateY(-5px);
+}
+
+.task-text {
+    color: #333;
+    font-size: clamp(0.8rem, 2vw, 1.2rem); /* Responsive font size */
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    word-wrap: break-word; /* Ensure long text wraps */
+}
+
+.task-tools {
     display: flex;
-    justify-content:space-between;
-    padding-inline: 0.5rem;
-    padding-bottom:1rem;
-   
+    justify-content: space-between;
+    align-items: center;
+    margin-top: clamp(0.5rem, 1vw, 1rem); /* Responsive margin */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.task-tools div {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.2rem, 1vw, 0.5rem); /* Responsive gap */
 }
 
 .task-mod {
-    border: none;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap:1rem;
-    padding-bottom: 20px ;
-}
-.task-mod img{
-    width: 20px;
-    height: 20px;
-}
-.task-mod button{
-    border: none;
-    font-size: 20px;
-    background-color: white;
-    cursor: pointer;
-    
+    gap: clamp(0.2rem, 1vw, 0.5rem); /* Responsive gap */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
+.task-mod button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    padding: clamp(0.2rem, 1vw, 0.5rem); /* Responsive padding */
+    border-radius: 5px;
+    width: clamp(20px, 3vw, 30px); /* Responsive width */
+    height: clamp(20px, 3vw, 30px); /* Responsive height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-mod button:nth-child(1) {
+    background-color: #4caf50; /* Green for Up Arrow */
+    color: white;
+}
+
+.task-mod button:nth-child(2) {
+    background-color: #f44336; /* Red for Down Arrow */
+    color: white;
+}
+
+.task-mod button:nth-child(3) {
+    background-color: #2196f3; /* Blue for Edit */
+    color: white;
+}
+
+.task-mod button:nth-child(4) {
+    background-color: #4caf50; /* Green Tick */
+    color: white;
+}
+
+.task-mod button:nth-child(5) {
+    background-color: #f44336; /* Red Tick */
+    color: white;
+}
+
+.task-mod button:nth-child(6) {
+    background-color: #9c27b0; /* Purple for Delete */
+    color: white;
+}
+
+.task-mod button:hover {
+    transform: scale(1.1);
+}
+
+.task-mod img {
+    width: clamp(12px, 2vw, 16px); /* Responsive icon size */
+    height: clamp(12px, 2vw, 16px); /* Responsive icon size */
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+}
+
+.task-mod img:hover {
+    filter: brightness(1) invert(0);
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: clamp(1.2rem, 3vw, 2rem);
+    }
+
+    .task-inp-con {
+        gap: clamp(0.5rem, 1vw, 1rem);
+    }
+
+    .task-inp-con .task-inp,
+    .task-inp-con select,
+    .task-sub {
+        width: 90%;
+    }
+
+    .tasks-display-con {
+        gap: clamp(0.5rem, 1vw, 1rem);
+    }
+
+    .tasks-display-con .task {
+        padding: clamp(0.5rem, 1vw, 1rem);
+    }
+
+    .task-text {
+        font-size: clamp(0.8rem, 2vw, 1rem);
+    }
+
+    .task-mod button {
+        width: clamp(15px, 2.5vw, 25px);
+        height: clamp(15px, 2.5vw, 25px);
+    }
+
+    .task-mod img {
+        width: clamp(10px, 1.5vw, 14px);
+        height: clamp(10px, 1.5vw, 14px);
+    }
+}
